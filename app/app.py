@@ -107,7 +107,9 @@ def generate(prompt, max_seq_len, temperature, model, tokenizer, vocab, device, 
 
 # Streamlit app
 def main():
-    st.title("LSTM Language Model Text Generator")
+    st.title("LSTM Language Model ")
+    # subtitle
+    st.subheader("Text Generator using LSTM Language Model")
     
     # Sidebar for user inputs
     st.sidebar.header("Settings")
