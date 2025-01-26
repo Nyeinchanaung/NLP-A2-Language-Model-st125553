@@ -1,6 +1,6 @@
 # NLP-A2-Language-Model-st125553
 ### Assignment 2: Language Model
-### AT82.05 Artificial Intelligence: Natural Language Understanding (NLU)
+#### AT82.05 Artificial Intelligence: Natural Language Understanding (NLU)
 
 ## GitHubLink:
 -  https://github.com/Nyeinchanaung/NLP-A2-Language-Model-st125553 
@@ -63,14 +63,23 @@ The model includes methods for:
 The **training and evaluation** process for the LSTM language model involves two main phases. 
 1. During **training**, the model is set to training mode, and hidden states are initialized and detached for efficiency. The data is truncated to ensure it can be divided evenly into sequences of a specified length (`seq_len`). For each batch, the optimizer’s gradients are zeroed, and input (`src`) and target (`target`) sequences are extracted. The model predicts the next token and the loss is computed using a criterion like cross-entropy. Gradients are clipped to prevent exploding gradients, and the optimizer updates the model parameters. The loss is accumulated and averaged over all batches for the epoch. 
 2. During **evaluation**, the model is set to evaluation mode, and the same data truncation and batch processing steps are followed but without gradient computation or parameter updates. The evaluation loss is calculated to assess the model’s performance on unseen data. This process ensures effective learning while preventing overfitting and gradient instability.
-
 ### Testing
 The testing step is to initialize the model with the pre-trained weights to evaluate or continue training. This aims to evaluate the model's performance on the test data by computing the loss, which measures how well the model predicts the next token. After calculating the perplexity result, print the test perplexity as a measure of model performance.
+### Result
+- **Train Perplexity:** 162.631 </p>
+This indicates how well the model performs on the training data. A lower perplexity means the model is better at predicting the next token in the training set.
+
+- **Validation Perplexity:** 232.081 </p>
+This measures the model’s performance on the validation set, which is used to tune hyperparameters and prevent overfitting. The higher perplexity compared to the training set suggests some overfitting, as the model performs worse on unseen validation data.
+
+- **Test Perplexity:** 227.200 </p>
+This reflects the model’s performance on the test set, which represents completely unseen data. The test perplexity is slightly better than the validation perplexity, indicating that the model generalizes reasonably well to new data.
+
 ## Application
 ### The web application 
 The web application is built using `Streamlit`, a Python framework for creating interactive web apps. It provides a user-friendly interface for generating text using a pre-trained LSTM-based language model. Users can input a text prompt, adjust generation parameters, and view the generated text in real-time.
 ### LSTM language model
 The application's backend interfaces with the LSTM language model to generate text. The pre-trained LSTM model and vocabulary are loaded into memory when the app starts. The user’s input prompt is tokenised into individual tokens (e.g., "love is" -> ["love", "is"]), and each token is mapped to its corresponding index in the vocabulary.
 The tokenized prompt is fed into the LSTM model and the model generates text autoregressively, predicting one token at a time. The generated token indices are mapped back to words using the vocabulary and the final text is displayed to the user.
-## Screenshot
+### Screenshot
 ![Webapp1](ss1.png)
