@@ -17,7 +17,7 @@ dropout_rate = Data['dropout_rate']
 tokenizer = Data['tokenizer']
 vocab = Data['vocab']
 
-# Define the LSTM model (same as in utils.py)
+# Define the LSTM model
 class LSTMLanguageModel(nn.Module):
     def __init__(self, vocab_size, emb_dim, hid_dim, num_layers, dropout_rate):
         super().__init__()
