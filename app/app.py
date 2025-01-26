@@ -8,7 +8,7 @@ import pickle
 # with open('models/vocab.pkl', 'rb') as f:
 #     vocab = pickle.load(f)
 # # Load training data and model parameters
-Data = pickle.load(open('models/vocab.pkl', 'rb'))
+Data = pickle.load(open('../models/vocab.pkl', 'rb'))
 vocab_size = Data['vocab_size']
 emb_dim = Data['emb_dim']
 hid_dim = Data['hid_dim']
@@ -120,7 +120,7 @@ def main():
 
     # Load model and vocabulary
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = load_model('models/best-val-lstm_lm.pt', vocab_size, emb_dim, hid_dim, num_layers, dropout_rate, device=device)
+    model = load_model('../models/best-val-lstm_lm.pt', vocab_size, emb_dim, hid_dim, num_layers, dropout_rate, device=device)
 
     # Tokenizer function (simple whitespace tokenizer)
     def tokenizer(text):
